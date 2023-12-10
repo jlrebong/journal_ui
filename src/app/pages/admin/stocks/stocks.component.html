@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="main-container stocks-container">
+    <div class="container">
+        <div class="upload_form">
+            <h2>Upload CSV File</h2>
+            <form enctype='multipart/form-data' [formGroup]="form" (ngSubmit)="submit()">
+                <div class="form_group">
+                    <label for="csv_upload">Select a file:</label>
+                    <input type="file" id="csv_upload" name="csv_upload" (change)="onFilechange($event)" formControlName="file_upload">
+                </div>
+                <button id="login-btn" class="btn btn-primary"type="submit">Upload</button>
+            </form>
+        </div>
+
+        <div class="stocks_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Symbol</th>
+                        <th>Company Name</th>
+                        <th>Sector</th>
+                        <!-- <th>Subsector</th> -->
+                        <th>Listing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stock of stocks.data; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.companyname}}</td>
+                        <td>{{stock.sectorname}}</td>
+                        <!-- <td>{{stock.subsectorname}}</td> -->
+                        <td>{{stock.listingdate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

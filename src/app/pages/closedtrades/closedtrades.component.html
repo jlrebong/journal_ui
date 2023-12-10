@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<div class="main-container home-container">
+    <div class="container">
+
+        <div class="trade-container">
+            <app-trades 
+            [tradelist]="getClosedTradeList()" 
+            [portfolio_id]="portfolio.id"
+            [preview]=true
+            (data)="updateList($event)"
+            ></app-trades>
+        </div>
+    </div>
+</div>

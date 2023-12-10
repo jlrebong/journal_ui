@@ -1,0 +1,173 @@
+<header>
+    <div class="container">
+      <h1 class="logo">Journal</h1>
+      <nav>
+        <ul>
+          <li><a routerLink="/login" routerLinkActive="active"  class="btn btn-outline-secondary">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+  <main>
+    <section class="hero-container">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div id="masterhead">
+          <div class="fl-column  fl-center hero-content">
+            <h1>JournalML</h1>
+            <h2>Your best help in trading the markets</h2>
+  
+            <div class="hero-image-container">
+              <img src="../assets/images/ai_hero.png" alt="">
+            </div>
+  
+            <a routerLink="/register" routerLinkActive="active" class="btn btn-primary btn-lg">Try Machine Learning Charts Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="top-features">
+      <div class="container">
+        <div class="fl-row fl-center">
+          <h2 class="title">Top Features</h2>
+        </div>
+      
+        <div class="fl-row feature-row">
+          <div>
+            <h2>Machine Learning Powered Charts</h2>
+  
+            <p>
+              Do you feel as if you have a good trade idea but just needs a little extra confirmation before entering the trade? Behold the power of Machine learning. Consult the computer before making that big decision
+  
+            </p> 
+            <br>
+            <p>Our ML based charts uses a type of recurrent neural network (RNN) called Long Short-Term Memory (LSTM) since this type of RNN is well-suited for sequential data, including time series data like stock prices. LSTM networks can capture complex patterns and dependencies in historical stock price data, making them a popular choice for stock price forecasting</p>
+  
+            <br>
+            <p>
+              Have more confidence on your trading ideas. Try our Machinne Learning powered Charts today!
+            </p>
+          </div>
+          <div>
+            <h2>Trading Journal</h2>
+            <p>A trading journal is a crucial tool for traders, whether you are a beginner or an experienced professional. It is essentially a record-keeping system that allows you to document and analyze your trading activities. </p>
+            <br>
+            <p>
+              Make your trading more structured and organized. Try our trading journal today!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="love">
+      <div class="container">
+        <div class="fl-row ">
+          <h2 class="text-center fl1">Reasons you might want to use JournalML</h2>
+        </div>
+        <div class="reasons-container">
+          <div class="fl1 reasons">
+            <ul>
+              <li class="fl-row">
+                <mat-icon aria-hidden="false" aria-label="Chart" fontIcon="data_thresholding"></mat-icon>
+                <span>Machine Learning Based Charts</span>
+              </li> 
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Journal" fontIcon="edit_square"></mat-icon> <span>Trading Journal</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Checklist" fontIcon="checklist"></mat-icon>
+                <span>Labels and Checklist</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Calculate" fontIcon="calculate"></mat-icon>
+                <span>P&L Calculation</span>
+              </li>
+            </ul>
+          </div>
+          <div class="fl1 reasons">
+            <ul>
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Dashboard" fontIcon="dashboard"></mat-icon>
+                <span>Open Trades Dashboard</span>
+              </li> 
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Historical Dashboard" fontIcon="space_dashboard"></mat-icon> <span>Historical Trades Dashboard</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="PSE" fontIcon="local_parking"></mat-icon>
+                <span>Philippine Stock Exchange Symbols</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Calculate" fontIcon="calculate"></mat-icon>
+                <span>Automatic Fee Calculations</span>
+              </li>
+            </ul>
+          </div>
+          <div class="fl1 reasons">
+            <ul>
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Forecast" fontIcon="storm"></mat-icon>
+                <span>Price Forecasting</span>
+              </li> 
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Portfolio" fontIcon="info"></mat-icon> <span>Portfolio</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Settings" fontIcon="settings"></mat-icon>
+                <span>Customizable Parameters</span>
+              </li>
+  
+              <li>
+                <mat-icon aria-hidden="false" aria-label="Profile" fontIcon="manage_accounts"></mat-icon>
+                <span>User Profile</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="free">
+      <div class="container">
+        <div class="fl-row fl-column fl-center title-container">
+          <h2 class="text-center fl1">All features are FREE!</h2>
+          <p>– No paid plans! –</p>
+        </div>
+  
+        <div class="fl-row">
+          <div class="fl1">
+            <ul>
+              <li class="fl-row fl-center">
+                <span>
+                  <mat-icon aria-hidden="false" aria-label="check" fontIcon="check"></mat-icon>
+                </span>
+                <span>No contracts</span>
+              </li>
+              <li class="fl-row fl-center">
+                <span>
+                  <mat-icon aria-hidden="false" aria-label="check" fontIcon="check"></mat-icon>
+                </span>
+                <span>No hidden fees</span></li>
+            </ul>
+          </div>
+          <div class="fl1 register-form-container">
+            <app-register></app-register>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <app-footer></app-footer>

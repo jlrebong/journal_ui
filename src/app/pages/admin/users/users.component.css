@@ -1,0 +1,40 @@
+.main-container {
+    padding-top: 20px;
+}
+/* Stocks table */
+.users_table {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 1px solid var(--dark-gray);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.user_row {
+    display:grid;
+    grid-template-columns: repeat(6, minmax(100px,1fr));
+    grid-gap: 10px 0;
+}
+
+.user_row th {
+    margin-bottom: 10px;
+}
+
+.user_row th,
+.user_row td {
+    text-align:left;
+}
+
+.users_table td {
+    padding: 0 20px 0 0;
+}
+
+.verified {
+    color:blue;
+}
+
+.non-verified {
+    color:tomato;
+}
+

@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="main-container">
+    <div class="container profile-container">
+        <aside id="sidenav">
+            <ul>
+                <li>Profile</li>
+                <li>Password</li>
+            </ul>
+        </aside>
+        <aside class="profile-content">
+            <div class="profile-heading">
+                <h2>Public Profile</h2>
+                <p>This information appears on our public profile</p>
+            </div>
+
+            <div class="profile_items">
+                <h2>Profile Picture</h2>
+                <div class="profile_pic">
+                    <img src="./../../../assets/images/generic_profile.png" alt="">
+                </div>
+            </div>
+
+            <div class="profile_items">
+                <h2>Username</h2>
+                <div>{{username}}
+                </div>
+            </div>
+
+            <div class="profile_items">
+                <h2>Firstname</h2>
+                <div>{{profile.firstname}}</div>
+            </div>
+
+            <div class="profile_items">
+                <h2>Lastname</h2>
+                <div>{{profile.lastname}}</div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

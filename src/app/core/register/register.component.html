@@ -1,0 +1,20 @@
+<div class="registration-form-container">
+    <h2 class="error" *ngIf="showErrorMessage">Registration Error</h2>
+    <form [formGroup]="form"> 
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Email (Username)" formControlName="username">
+            <mat-error>Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput type="Password" placeholder="Password (min 6 characters)" formControlName="password">
+            <mat-error>Minimum of 6 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input matInput type="Password" placeholder="Confirm Password" formControlName="confirm">
+            <mat-error>Password does not match</mat-error>
+        </mat-form-field>
+        
+        <button id="register-btn" class="btn btn-primary btn-lg" (click)="onSubmit()">Create Your FREE Account!</button>
+    </form>
+</div>

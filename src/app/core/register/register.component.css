@@ -1,0 +1,47 @@
+form  {
+    display:flex;
+    flex-direction:column;
+}
+
+/* #register-btn {
+    padding: 10px;
+} */
+
+.registration-form-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ::ng-deep mat-form-field .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+} */
+
+
+/* input {
+    padding: 5px;
+} */
+
+::ng-deep mat-form-field {
+    margin-bottom: 5px;
+    border-radius:5px;
+}
+
+/*
+ input::placeholder {
+    font: 1.25rem;
+    color: white !important;
+}
+
+
+ */
+
+
+/* 
+::ng-deep mat-form-field .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color:white;
+} */
+/* ::ng-deep .mat-input-element::placeholder{
+    color: red !important;
+}
+ */

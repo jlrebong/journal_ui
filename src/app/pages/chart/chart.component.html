@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="main-container">
+    <div class="container chart-container">
+        <aside id="sidenav">
+            <form [formGroup]="form" class="form-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Symbol</mat-label>
+                    <input matInput placeholder="Type and wait..." [matAutocomplete]="auto" formControlName="symbol" #symbol>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option
+                        *ngFor="let option of filteredOptions | async"
+                        [value]="option"
+                        >{{ option }}</mat-option
+                        >
+                    </mat-autocomplete>
+
+                    <mat-error>Symbol is required</mat-error>
+                </mat-form-field>
+
+                <button [disabled]='analyzing' mat-raised-button id="analyze" [class]="buttonClasses()" (click)="onAnalyze()">
+                    <mat-icon aria-hidden="false" aria-label="sync" fontIcon="sync"></mat-icon>Analyze
+                </button>
+            </form>
+
+            <div class="help">
+                <mat-icon aria-hidden="false" aria-label="help" fontIcon="help"></mat-icon>
+                Please be patient. Analysis can take some time.
+            </div>
+        </aside>
+
+        <aside class="chart-content">
+            <img src="data:image/png;base64, {{chartImage}}" alt="" *ngIf="chartImage && !analyzing">
+
+            <div id="spinner" *ngIf="analyzing">
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+
+<app-footer></app-footer>

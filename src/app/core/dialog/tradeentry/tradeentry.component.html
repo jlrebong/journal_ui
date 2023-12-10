@@ -1,0 +1,192 @@
+<div class="trade-entry-container">
+    <div class="container trade-main-container">
+        <form [formGroup]="form" class="form-container">
+
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Created Date</mat-label>
+                <input matInput placeholder="Created Date" formControlName="createdDate">
+            </mat-form-field> -->
+
+            
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Symbol</mat-label>
+                    <input matInput placeholder="Type and wait..." [matAutocomplete]="auto" formControlName="symbol" #symbol>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option
+                          *ngFor="let option of filteredOptions | async"
+                          [value]="option"
+                          >{{ option }}</mat-option
+                        >
+                      </mat-autocomplete>
+    
+                    <mat-error>Symbol is required</mat-error>
+                </mat-form-field>
+
+                <mat-radio-group aria-label="Status" formControlName="status">
+                    <mat-label>Status</mat-label>
+                    <mat-radio-button value="N" *ngIf="!this.trades.status">New</mat-radio-button>
+                    <mat-radio-button value="A" *ngIf="this.trades.status">Active</mat-radio-button>
+                    <mat-radio-button value="C" *ngIf="this.trades.status">Closed</mat-radio-button>
+                </mat-radio-group>
+    
+            </div>
+            
+            <mat-radio-group aria-label="Select an option" formControlName="direction" #direction>
+                <mat-label>Direction:</mat-label>
+                <mat-radio-button value="long" >Long</mat-radio-button>
+                <mat-radio-button value="short">Short</mat-radio-button>
+            </mat-radio-group>
+
+        
+
+            <div class="row">
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input matInput placeholder="Amount" formControlName="amount">
+                    <mat-error>Amount is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Entry Price</mat-label>
+                    <input matInput placeholder="Entry Price" formControlName="entry_price" (focusout)="onEntryOut($event)">
+                    <mat-error>Entry Price is required</mat-error>
+                </mat-form-field>
+
+            </div>
+
+
+            
+            
+
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Target Price</mat-label>
+                    <input matInput placeholder="Target Price" formControlName="target_price">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Stop Loss Price</mat-label>
+                    <input matInput placeholder="Stop Loss Price" formControlName="stop_price">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" *ngIf="this.form.get('status')?.value=='C'">
+                <mat-label>Sell Price</mat-label>
+                <input matInput placeholder="Sell Price" formControlName="sell_price">
+                <mat-error>Sell Price is required</mat-error>
+            </mat-form-field>
+
+            <div class="flex-row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Rating</mat-label>
+                    <input matInput placeholder="Rating" formControlName="rating">
+                </mat-form-field>
+                <div class="help">
+                    <mat-icon aria-hidden="false" aria-label="help" fontIcon="help" class="help">
+                    </mat-icon>
+                    <div class="help-text">
+                        You may enter any number (for example 1-10) into the rating fields to symbolize your rating of the trade. Your rating could be made up of one or several factors you choose, i.e. fundamental factors, chart patterns or certain technical indicator values. 
+                    </div>
+                    
+                </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="comments">
+                <mat-label>Trade Plan Description / Comments</mat-label>
+                <textarea matInput rows="3" formControlName="comments"></textarea>
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Closed Date</mat-label>
+                <input matInput placeholder="Closed Date" formControlName="closedDate">
+            </mat-form-field> -->
+        </form>
+
+        <aside class="summary">
+            <div class="summary-title">
+                <h2>Trade Plan Summary</h2>
+            </div>
+
+            <div class="summary-details">
+                <div class="summary-item">
+                    <span>Symbol</span>
+                    <span>{{form.get('symbol')?.value}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Direction</span>
+                    <span>{{form.get('direction')?.value}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Quantity</span>
+                    <span>{{form.get('amount')?.value  | number}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Entry Price</span>
+                    <span>{{form.get('entry_price')?.value  | number}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Total Cost *</span>
+                    <span>{{getTotalCost()  | number}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Target Price</span>
+                    <span>{{form.get('target_price')?.value  | number}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Stop Price</span>
+                    <span>{{form.get('stop_price')?.value  | number}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Actual Profit / Loss *</span>
+                    <span [class]="getActualProfit() < 0 ? 'loss': 'profit'">{{getActualProfit()  | number}} ({{getActualProfitPct()}}%)</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Potential Profit *</span>
+                    <span [class]="getProfit() < 0 ? 'loss': 'profit'">{{getProfit()  | number}} ({{getProfitPct()}}%)</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Potential Loss *</span>
+                    <span [class]="getLoss() < 0 ? 'loss': 'profit'">{{getLoss()  | number}} ({{getLossPct()}}%)</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Risk / Reward Ratio</span>
+                    <span>{{getRRR()}}</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Strategy</span>
+                    <span>{{form.get('strategy')?.value}}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="summary-item">
+                    *including commision
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="container dialog-footer">
+        <button mat-raised-button cdkFocusInitial id="close" class="btn" (click)="onClose()">
+            <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>Close
+        </button>
+        <button mat-raised-button id="save" class="btn btn-primary" (click)="onSave()"  *ngIf="!preview">
+            <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>Save
+        </button>
+
+        <button mat-raised-button id="save" class="btn btn-primary" (click)="onReopen()"  *ngIf="preview">
+            <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>Reopen
+        </button>
+      </div>
+</div>

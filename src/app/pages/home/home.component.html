@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<div class="main-container home-container">
+    <div class="container">
+        <div class="portfolio-container">
+            <div class="left-side">
+                <h2>{{username | titlecase}}'s Portfolio</h2>
+                <div class="available-cash">
+                    <p class="amount">Available Cash</p>
+                    <h2 >PHP {{portfolio.total_cash | number}}</h2>
+                </div>
+
+                <div class="total-equity">
+                    <p class="amount">Total Equity</p>
+                    <h2>PHP {{getTotalEquity()  | number}}</h2>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn btn-primary" (click)="onClickAddFunds()">Withdraw/Deposit Funds</button>
+                </div>
+            </div>
+
+            <div class="right-side chart-wrapper">
+                <canvas baseChart
+                    [type]="'pie'"
+                    [datasets]="pieChartDatasets"
+                    [labels]="pieChartLabels"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="trade-container">
+            <app-trades 
+            [tradelist]="tradelist" 
+            [portfolio_id]="portfolio.id"
+            (data)="updateList($event)"
+            ></app-trades>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

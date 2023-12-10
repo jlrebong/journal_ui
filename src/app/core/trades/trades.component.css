@@ -1,0 +1,30 @@
+.trade_table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.trade_table thead {
+    background: var(--light-gray);
+}
+.trade_table thead tr {
+    color:white;
+}
+
+.trade_row {
+    padding: 10px 0;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+    text-align:center;
+}
+
+.symbol {
+    display:flex;
+    justify-content:center;
+    text-decoration:underline;
+    color:blue;
+    cursor:pointer;
+}
+
+.symbol mat-icon {
+    font-size:18px;
+}

@@ -1,0 +1,35 @@
+<h2 class="error" *ngIf="showErrorMessage">Error Saving Trade</h2>
+<table class="trade_table">
+    <thead>
+        <tr class="trade_row">
+            <th>Date</th>
+            <th>Symbol</th>
+            <th>Entry</th>
+            <th>Amount</th>
+            <th>Gross</th>
+            <th>Target</th>
+            <th>Stop</th>
+            <th>Potential Profit</th>
+            <th>Potential Loss</th>
+            <th>Direction</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr class="trade_row" *ngFor="let trade of tradelist">
+                <td>{{trade.created_date | date}}</td>
+                <td class="symbol">
+                    <span (click)="openEditDialog(trade.id)">{{trade.symbol}}</span>
+                </td>
+                <td>{{trade.entry_price}}</td>
+                <td>{{trade.amount  | number}}</td>
+                <td>{{computeGross(trade.entry_price, trade.amount)  | number}}</td>
+                <td>{{trade.target_price}}</td>
+                <td>{{trade.stop_price}}</td>
+                <td>{{computeProfit(trade.entry_price, trade.target_price, trade.amount)  | number}}</td>
+                <td>{{computeLoss(trade.entry_price, trade.stop_price, trade.amount)  | number}}</td>
+                <td>{{trade.direction}}</td>
+            </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="openNewDialog()" *ngIf="!preview">Add Row</button>

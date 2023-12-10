@@ -1,0 +1,35 @@
+.home-container {
+    padding: 30px 0;
+}
+
+.portfolio-container {
+    background:white;     
+    border-radius: 10px;
+    padding: 20px;
+    color:var(--secondary-color);
+    width: 100%;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.trade-container {
+    background:white;     
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    color:var(--secondary-color);
+}
+
+.left-side {
+    position:relative;
+}
+
+.left-side .button-container {
+    position:absolute;
+    bottom:0;
+}
+
+.amount {
+    font-size:1.2em;
+}

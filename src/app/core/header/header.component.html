@@ -1,0 +1,38 @@
+<header>
+    <div class="container">
+        <h1 class="logo">Journal</h1>
+        <nav>
+        <ul class="main-menu-container">
+            <li id="home" class="menu-container">
+                <span class="menu-title" routerLink="/home" routerLinkActive="active">Dashboard</span>
+            </li>
+            <li id="closed" class="menu-container">
+                <span class="menu-title" routerLink="/closedtrades" routerLinkActive="active">Closed Trades</span>
+            </li>
+            <li id="charts" class="menu-container">
+                <span class="menu-title" routerLink="/charts" routerLinkActive="active">Charts</span>
+            </li>
+            <li id="admin" class="menu-container">
+                <span class="menu-title">Admin</span>
+                <div class="sub-menu">
+                    <ul>
+                        <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
+                        <li><a routerLink="/admin/stocks" routerLinkActive="active">Stocks</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="profile" class="menu-container">
+                <span class="menu-title">
+                    <mat-icon aria-hidden="false" aria-label="Chart" fontIcon="account_circle"></mat-icon>
+                </span>
+                <div class="sub-menu">
+                    <ul>
+                        <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+                        <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        </nav>
+    </div>
+</header>

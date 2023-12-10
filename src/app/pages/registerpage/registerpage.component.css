@@ -1,0 +1,43 @@
+header {
+    margin-bottom: 5em;
+    background: #fff;
+}
+
+.logo a,
+.register-reminder a {
+    text-decoration:none;
+    color:#000 !important;
+}
+
+.main-container {
+    background: #efefef;
+    min-height:100vh;
+}
+
+.register-container {
+    width: 50%;
+    margin:auto;
+    padding: 30px 10px;
+    background: #fff;
+    border-radius:10px;
+    margin-bottom: 40px;
+    text-align:center;
+}
+/* 
+app-footer {
+    position:fixed;
+    bottom:0;
+    width: 100%;
+} */
+
+
+.reminder-outline {
+    display:block;
+    width: 50%;
+    margin:auto;
+    color: var(--light-gray);
+    background-color: transparent;
+    background-image: none;
+    border-color: #d1dde9;
+    padding: 10px;
+}

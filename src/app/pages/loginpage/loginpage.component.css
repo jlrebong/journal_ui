@@ -1,0 +1,46 @@
+header {
+    margin-bottom: 5em;
+    background: #fff;
+}
+
+.logo a,
+.register-reminder a {
+    text-decoration:none;
+    color:#000 !important;
+}
+
+.main-container {
+    background: #efefef;
+    /* background: var(--primary-color); */
+    min-height:100vh;
+    position:relative;
+}
+
+.login-container {
+    width: 50%;
+    margin:auto;
+    text-align:center;
+    padding: 30px 10px;
+    background: #fff;
+    border-radius:10px;
+    margin-bottom: 40px;
+}
+
+
+
+/* app-footer {
+    position:fixed;
+    bottom:0;
+    width: 100%;
+} */
+
+.reminder-outline {
+    display:block;
+    width: 50%;
+    margin:auto;
+    color: var(--light-gray);
+    background-color: transparent;
+    background-image: none;
+    border-color: #d1dde9;
+    padding: 10px;
+}

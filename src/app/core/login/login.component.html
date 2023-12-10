@@ -1,0 +1,17 @@
+<div class="login-form-container">
+    <h2 class="error" *ngIf="showErrorMessage">Invalid username or password</h2>
+    <form [formGroup]="form"> 
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-error>Username is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput type="Password" placeholder="Password" formControlName="password">
+            <mat-error>Password is required</mat-error>
+        </mat-form-field>
+        <div class="keep_signedin">
+            <mat-checkbox formControlName="keep"></mat-checkbox>Keep Me Signed In
+        </div>
+        <button id="login-btn" class="btn btn-primary btn-lg" (click)="onSubmit()">Sign In</button>
+    </form>
+</div>

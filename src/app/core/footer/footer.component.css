@@ -1,0 +1,26 @@
+
+/* Footer */
+
+footer {
+    background-color: var(--medium-gray);
+    color:white;
+    padding-top: 50px;
+    font-size:1.2rem;
+}
+
+footer h3 {
+    font-size:1.4rem;
+}
+
+footer a {
+    color: white;
+}
+
+footer .fl-row > div {
+    flex: 1;
+}
+
+.copyright {
+    margin:20px 0;
+    text-align:center;
+}

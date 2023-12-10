@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="main-container">
+    <div class="container">
+        <div class="users_table">
+            <table>
+                <thead>
+                    <tr class="user_row">
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Verified?</th>
+                        <th>Verified Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; let i = index" class="user_row">
+                        <td>{{i}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.profile.firstname}}</td>
+                        <td>{{user.profile.firstname}}</td>
+                        <td> 
+                            <mat-icon *ngIf="user.is_verified" class="verified" aria-hidden="false" aria-label="verified" fontIcon="verified"></mat-icon>
+                            <mat-icon *ngIf="!user.is_verified" class="non-verified" aria-hidden="false" aria-label="person_alert" fontIcon="person_alert"></mat-icon>
+                        </td>
+                        <td>{{user.verified_date | date}}</td>
+                        <!-- <td>{{stock.subsectorname}}</td> -->
+                        <!-- <td>{{stock.listingdate}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

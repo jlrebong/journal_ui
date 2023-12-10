@@ -1,0 +1,30 @@
+
+<div class="add-cash-main-container">
+    <h2>Add or Withdraw Amount</h2>
+    <div class="container add-cash-form-container">
+        <form [formGroup]="form" class="form-container">
+            <mat-radio-group aria-label="Type" formControlName="type">
+                <mat-label>Type</mat-label>
+                <mat-radio-button value="A">Add</mat-radio-button>
+                <mat-radio-button value="W">Withdraw</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Cash Value</mat-label>
+                <input matInput placeholder="Value" formControlName="cash_value">
+                <mat-error>Value is required</mat-error>
+                <mat-hint align="end">In case of withrawal no need to type negative (-) symbol</mat-hint>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div class="container dialog-footer">
+        <button mat-raised-button cdkFocusInitial id="close" class="btn" (click)="onClose()">
+            <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>Close
+        </button>
+        <button mat-raised-button id="save" class="btn btn-primary" (click)="onSave()">
+            <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>Save
+        </button>
+    </div>
+</div>
+
