@@ -10,7 +10,8 @@ export class BaseService {
   protected url;
 
   constructor(protected http: HttpClient) { 
-    this.url = 'http://127.0.0.1:5000/api';
+    let url = process.env["SERVICE_API"] || 'http://127.0.0.1:5000/api'; 
+    this.url = url;
   }
 
   protected getHeader() {
