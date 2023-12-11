@@ -81,7 +81,7 @@ export class HomeComponent {
     let self = this;
     this.tradeSvc.getCurrentTrades(portfolioId).subscribe({
       next(res) { 
-        self.tradelist=res.data;  
+        self.tradelist=res.data.filter((e:any)=>e.closed==false);  
         self.computePieData(self.tradelist);
       },
       error(err) {  },
