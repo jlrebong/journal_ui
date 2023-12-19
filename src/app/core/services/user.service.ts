@@ -27,6 +27,26 @@ export class UserService extends BaseService {
     return this.post(data, '/register');
   }
 
+  changeName(firstname:string, lastname:string) {
+    let user_id = localStorage.getItem('userid');
+    let data = {
+      "user_id": user_id,
+      "firstname": firstname,
+      "lastname": lastname
+    }
+    return this.post(data, '/profile');
+  }
+
+  changePassword(password:string) {
+    let username = localStorage.getItem('username');
+    let data = {
+      "username": username,
+      "password": password,
+      "keep": 1
+    }
+    return this.post(data, '/changepassword');
+  }
+
   getUser() {
     let username = localStorage.getItem('username');
     return this.get('/user/' + username);

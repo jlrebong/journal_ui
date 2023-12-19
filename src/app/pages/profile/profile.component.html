@@ -4,11 +4,14 @@
     <div class="container profile-container">
         <aside id="sidenav">
             <ul>
-                <li>Profile</li>
-                <li>Password</li>
+                <li (click)="onSetPage(0)">Profile</li>
+                <li (click)="onSetPage(1)">Password</li>
             </ul>
         </aside>
-        <aside class="profile-content">
+
+        <aside class="profile-content" id="main-profile" *ngIf="selectedPage==0">
+            <h2 *ngIf="profileSaved" class="success">Profile has been saved!</h2>
+
             <div class="profile-heading">
                 <h2>Public Profile</h2>
                 <p>This information appears on our public profile</p>
@@ -23,19 +26,65 @@
 
             <div class="profile_items">
                 <h2>Username</h2>
-                <div>{{username}}
+                <div>{{username}}</div>
+            </div>
+ 
+            <form [formGroup]="form" class="form-container">
+                <div class="profile_items">
+                    <h2>Firstname</h2>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Firstname</mat-label>
+                            <input matInput placeholder="Firstname" formControlName="firstname">
+                        </mat-form-field>
+                    </div>
                 </div>
-            </div>
 
-            <div class="profile_items">
-                <h2>Firstname</h2>
-                <div>{{profile.firstname}}</div>
-            </div>
+                <div class="profile_items">
+                    <h2>Lastname</h2>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Lastname</mat-label>
+                            <input matInput placeholder="Lastname" formControlName="lastname">
+                        </mat-form-field>
+                    </div>
+                </div>
 
-            <div class="profile_items">
-                <h2>Lastname</h2>
-                <div>{{profile.lastname}}</div>
-            </div>
+                <div class="button-container">
+                    <button class="btn btn-primary" (click)="onClickChangeName()">Save</button>
+                </div>
+            </form>  
+        </aside>
+
+        <aside class="profile-content" id="password-profile" *ngIf="selectedPage==1">
+            <h2 *ngIf="passwordSaved" class="success">Password has been saved!</h2>
+            <form [formGroup]="userForm" class="form-container">
+                <div class="profile_items">
+                    <h2>Password</h2>
+                    <div>
+                        <mat-form-field appearance="outline" style="width:15vw">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="Password" placeholder="Password" formControlName="password">
+                            <mat-error>Minimum of 6 characters</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="profile_items confirm_password">
+                    <h2>Confirm Password</h2>
+                    <div>
+                        <mat-form-field appearance="outline" style="width:15vw">
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput type="Password" placeholder="Confirm Password" formControlName="confirm">
+                            <mat-error>Password does not match</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn btn-primary" (click)="onChangePassword()">Save</button>
+                </div>
+            </form>  
         </aside>
 
     </div>

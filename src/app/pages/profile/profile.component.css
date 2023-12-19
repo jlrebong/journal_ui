@@ -51,12 +51,17 @@ img {
     padding: 50px;
 }
 
+.profile-container > aside.profile-content form > div,
 .profile-container > aside.profile-content > div {
     border-bottom: 1px solid #3f3f3f;
 }
 
-.profile-container > aside.profile-content > div:last-of-type {
+.profile-container > aside.profile-content form > div:last-of-type {
     border-bottom:none;
+}
+
+.confirm_password {
+    margin-bottom: 20px;
 }
 
 .profile_items {
@@ -69,4 +74,14 @@ img {
 
 .profile_items h2 {
     margin: 0!important;
+}
+
+.button-container {
+    margin-top: 20px;
+    display:flex;
+    justify-content:end;
+}
+
+.success {
+    color:blue;
 }
