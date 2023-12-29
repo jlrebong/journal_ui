@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { ChartService } from 'src/app/core/services/chart/chart.service';
@@ -20,6 +20,8 @@ export class ChartComponent implements OnInit {
   chartImage!: string;
 
   analyzing:boolean=false;
+
+  @ViewChild('iframe') iframe!: ElementRef;
   
   constructor(
     private file_service: FileserviceService,
@@ -63,7 +65,16 @@ export class ChartComponent implements OnInit {
     
     let self = this;
     this.chartSvc.getChart(symbol).subscribe({
-      next(data) { self.chartImage = data.img_base64; },
+      next(data) { 
+        const doc = self.iframe.nativeElement.contentDocument || self.iframe.nativeElement.contentElement.contentWindow;
+
+        self.iframe.nativeElement.style.height='80vh';
+        self.iframe.nativeElement.style.width='70vw';
+        doc.open();
+        doc.write(data);
+        doc.close();
+
+      },
       error(err) { console.log(err); self.analyzing=false; },
       complete() { self.analyzing=false; }
     });
