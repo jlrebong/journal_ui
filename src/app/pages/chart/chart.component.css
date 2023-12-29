@@ -15,8 +15,35 @@
 
 #sidenav {
     padding: 25px;
-    min-height: 90vh;
+    max-height: 90vh;
     overflow-y: hidden;
+}
+
+#stocklist {
+    padding: 10px 0;
+    max-height: 65vh;
+    overflow-y: scroll;
+    font-size: 1.5em;
+}
+
+#stocklist li {
+    padding: 5px 5px;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+}
+
+.list-item-disabled {
+    cursor:hand;
+    color: #aaa;
+}
+
+#stocklist li .companyname {
+    font-size: 0.8em;
+}
+
+#stocklist li:hover {
+    background: #ccc;
 }
 
 #sidenav form {
@@ -25,7 +52,7 @@
 }
 
 .help {
-    margin-top: 40px;
+    margin: 20px 0;
     color: #aaa;
 }
 

@@ -80,11 +80,25 @@ export class ChartComponent implements OnInit {
     });
   }
 
+  onSelectCompany(stock_symbol:string) {
+    if (this.analyzing) return;
+    
+    this.form.get('symbol')?.setValue(stock_symbol);
+  }
+
   buttonClasses() {
     if (this.analyzing) {
       return 'btn-disabled';
     } else {
       return 'btn btn-primary';
+    }
+  }
+
+  listClasses() {
+    if (this.analyzing) {
+      return 'list-item-disabled';
+    } else {
+      return '';
     }
   }
 
