@@ -7,10 +7,13 @@
             <th>Entry</th>
             <th>Amount</th>
             <th>Gross</th>
-            <th>Target</th>
-            <th>Stop</th>
-            <th>Potential Profit</th>
-            <th>Potential Loss</th>
+            <th *ngIf="!isClosedTrade">Target</th>
+            <th *ngIf="!isClosedTrade">Stop</th>
+            <th *ngIf="!isClosedTrade">Potential Profit</th>
+            <th *ngIf="!isClosedTrade">Potential Loss</th>
+            <th *ngIf="isClosedTrade">Sell Price</th>
+            <th *ngIf="isClosedTrade">Profit / Loss</th>
+            <th *ngIf="isClosedTrade">%</th>
             <th>Direction</th>
         </tr>
     </thead>
@@ -23,10 +26,13 @@
                 <td>{{trade.entry_price}}</td>
                 <td>{{trade.amount  | number}}</td>
                 <td>{{computeGross(trade.entry_price, trade.amount)  | number}}</td>
-                <td>{{trade.target_price}}</td>
-                <td>{{trade.stop_price}}</td>
-                <td>{{computeProfit(trade.entry_price, trade.target_price, trade.amount)  | number}}</td>
-                <td>{{computeLoss(trade.entry_price, trade.stop_price, trade.amount)  | number}}</td>
+                <td *ngIf="!isClosedTrade">{{trade.target_price}}</td>
+                <td *ngIf="!isClosedTrade">{{trade.stop_price}}</td>
+                <td *ngIf="!isClosedTrade">{{computeProfit(trade.entry_price, trade.target_price, trade.amount)  | number}}</td>
+                <td *ngIf="!isClosedTrade">{{computeLoss(trade.entry_price, trade.stop_price, trade.amount)  | number}}</td>
+                <td *ngIf="isClosedTrade">{{trade.sell_price}}</td>
+                <td *ngIf="isClosedTrade">{{computeProfit(trade.entry_price, trade.sell_price, trade.amount)  | number}}</td>
+                <td *ngIf="isClosedTrade">{{computeProfit(trade.entry_price, trade.sell_price, trade.amount) / computeGross(trade.entry_price, trade.amount)  | percent:'1.2'}}</td>
                 <td>{{trade.direction}}</td>
             </tr>
     </tbody>

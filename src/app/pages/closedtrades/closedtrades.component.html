@@ -8,6 +8,7 @@
             [tradelist]="getClosedTradeList()" 
             [portfolio_id]="portfolio.id"
             [preview]=true
+            [isClosedTrade]=true
             (data)="updateList($event)"
             ></app-trades>
         </div>

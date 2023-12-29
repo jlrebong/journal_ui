@@ -19,6 +19,7 @@ export class TradesComponent {
   @Input() tradelist: any;
   @Input() portfolio_id: any;
   @Input() preview!: boolean;
+  @Input() isClosedTrade: boolean=false;
 
   @Output()
   data = new EventEmitter();
